@@ -1,0 +1,30 @@
+spring:
+    application:
+        name: saymon
+    datasource:
+            dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+            url: jdbc:mysql://172.17.0.2:3306/MUSICDB
+            databaseName: MUSICDB
+            serverName:
+            username: root
+            password: 123456
+    jpa:
+            database-platform: org.hibernate.dialect.MySQL5Dialect
+            database: MYSQL
+            openInView: false
+            show_sql: false
+            hibernate:
+                ddl-auto: update
+                naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            #properties:
+             #   hibernate.cache.use_second_level_cache: true
+             #   hibernate.cache.use_query_cache: false
+             #   hibernate.cache.use_minimal_puts: true
+             #   hibernate.enable_lazy_load_no_trans: true
+             #   defaultTransactionIsolation: 2
+server:
+    port: 8080
+    servlet:
+            contextPath: /api
+
+
