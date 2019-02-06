@@ -1,0 +1,32 @@
+spring:
+    application:
+        name: saymon
+    datasource:
+            dataSourceClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+            url: jdbc:sqlserver://127.0.0.1:1433;databaseName=JBPM_LEARN
+            databaseName: JBPM_LEARN
+            serverName:
+            username: sa
+            password: Ci10169949.
+    jpa:
+            database-platform: org.hibernate.dialect.SQLServer2008Dialect
+            database: SQL_SERVER
+            openInView: false
+            show_sql: false
+            generate-ddl: true
+            hibernate:
+                ddl-auto: update
+                naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            #properties:
+             #   hibernate.cache.use_second_level_cache: true
+             #   hibernate.cache.use_query_cache: false
+             #   hibernate.cache.use_minimal_puts: true
+             #   hibernate.enable_lazy_load_no_trans: true
+             #   defaultTransactionIsolation: 2
+server:
+    port: 8080
+    #servlet: /api
+
+
+
+
