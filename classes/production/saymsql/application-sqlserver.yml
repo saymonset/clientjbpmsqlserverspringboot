@@ -1,0 +1,43 @@
+server:
+    port: 8080
+    address: 0.0.0.0
+    compression:
+        enabled: true
+        mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+spring:
+    profiles:
+        active: sqlserver
+    datasource:
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+        dataSourceClassName: com.microsoft.sqlserver.jdbc.SQLServerDataSource
+        url: jdbc:sqlserver://127.0.0.1:1433;databaseName=JBPM_LEARN
+        databaseName:
+        serverName:
+        username: sa
+        password: Ci10169949.
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+    jpa:
+        database-platform: org.hibernate.dialect.SQLServerDialect
+        database: SQL_SERVER
+        openInView: false
+        show_sql: true
+        generate-ddl: true
+        transactionType: RESOURCE_LOCAL
+        hibernate:
+            ddl-auto: none
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        properties:
+            hibernate.cache.use_second_level_cache: true
+            hibernate.cache.use_query_cache: true
+            hibernate.generate_statistics: true
+            hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+            hibernate.default_schema: WISSEN
+    messages:
+        cache-seconds: 1
+    thymeleaf:
+        mode: XHTML
+        cache: false

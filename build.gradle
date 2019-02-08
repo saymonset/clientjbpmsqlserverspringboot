@@ -9,7 +9,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
-
+//apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
@@ -20,29 +20,62 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+	maven {
+		name 'central'
+		url 'http://repo1.maven.org/maven2'
+	}
+	maven {
+		name 'jboss'
+		url 'http://repository.jboss.org/nexus/content/groups/public-jboss'
+	}
 }
-
 dependencies {
-	compile "joda-time:joda-time:2.2"
-	compile group: 'com.google.guava', name: 'guava', version: 'r05'
+	implementation "joda-time:joda-time:2.2"
+	implementation group: 'com.google.guava', name: 'guava', version: 'r05'
 	//compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-	compile('com.microsoft.sqlserver:mssql-jdbc')
+	implementation('com.microsoft.sqlserver:mssql-jdbc')
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		//exclude module: "spring-boot-starter-tomcat"
+	}
+
+	// https://mvnrepository.com/artifact/org.kie/kie-maven-plugin
+	//compile group: 'org.kie', name: 'kie-maven-plugin', version: '6.4.0.Final'
+	// https://mvnrepository.com/artifact/org.kie/kie-maven-plugin
+	//compile group: 'org.kie', name: 'kie-maven-plugin', version: '6.2.0.Final'
+
+
+	// https://mvnrepository.com/artifact/org.kie/kie-api
+
+// https://mvnrepository.com/artifact/org.kie/kie-ci
+	//implementation group: 'org.kie', name: 'kie-ci', version: '6.4.0.Final'
+
+
+	implementation group: 'org.kie.server', name: 'kie-server-api', version: '6.4.0.Final'
+	implementation group: 'org.kie.server', name: 'kie-server-client', version: '6.4.0.Final'
+
+	/*compile group: 'org.kie.server', name: 'kie-server-wars', version: '6.4.0.Final', ext: 'pom'
+
+	implementation group: 'org.kie', name: 'kie-maven-plugin', version: '6.4.0.Final'
+
+	implementation group: 'org.kie', name: 'kie-internal', version: '6.4.0.Final'
+	implementation group: 'org.kie.remote', name: 'kie-remote-client', version: '6.4.0.Final'
+	implementation group: 'org.kie.remote', name: 'kie-remote-jaxb', version: '6.4.0.CR2'
+	implementation group: 'org.kie.remote.ws', name: 'kie-remote-ws-wsdl', version: '6.4.0.Beta2'
+	implementation group: 'org.kie.remote', name: 'kie-remote-client', version: '6.4.0.Final'*/
+
+	//providedCompile  group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 
-/*
-jar {
-	baseName = 'gs-saymon'
-	version =  '0.1.0'
-}
-*/
+
+
 
 
 bootJar {

@@ -3,8 +3,8 @@ spring:
         name: saymon
     datasource:
             dataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlDataSource
-            url: jdbc:mysql://172.17.0.2:3306/MUSICDB
-            databaseName: MUSICDB
+            url: jdbc:mysql://172.17.0.2:3306/musicdb
+            databaseName: musicdb
             serverName:
             username: root
             password: 123456
@@ -24,7 +24,8 @@ spring:
              #   defaultTransactionIsolation: 2
 server:
     port: 8080
-    servlet:
-            contextPath: /api
+    #servlet: /api
+
+
 
 
