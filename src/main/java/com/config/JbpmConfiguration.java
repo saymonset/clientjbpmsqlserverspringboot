@@ -4,6 +4,7 @@ import org.kie.server.api.model.definition.QueryDefinition;
 import org.kie.server.client.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +19,16 @@ import java.util.Set;
  */
 @Configuration
 public class JbpmConfiguration   {
-
+    @Value("${bd.url}")
+    private String url;
+    @Value("${bd.user}")
+    String user;
+    @Value("${bd.password}")
+    String password;
+    @Value("${jbpm.containerId}")
+    String containerId;
+    @Value("${jbpm.processId}")
+    String processId = "hello";
     private static final Logger log = LoggerFactory.getLogger(JbpmConfiguration.class);
    // private DecryptRelaxPropertyResolver propertyResolver;
     private KieServicesClient kieServicesClient;
@@ -65,14 +75,13 @@ public class JbpmConfiguration   {
 
     @PostConstruct
     public void init(){
-        String url = "http://localhost:8080/kie-server/services/rest/server";
-        String user = "admin";
-        String password = "admin";
-        String containerId = "hello";
-        String processId = "hello";
+
+
 
         System.setProperty("org.kie.server.bypass.auth.user", "true");
 
+        log.info("Url =" + url + ", user = " + user + ", password = " + password);
+        log.info("=----------------------------------=");
         KieServicesConfiguration configuration = KieServicesFactory.newRestConfiguration(url, user, password);
         configuration.setMarshallingFormat(MarshallingFormat.JSON);
 

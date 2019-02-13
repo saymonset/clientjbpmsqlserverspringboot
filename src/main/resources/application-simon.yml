@@ -1,3 +1,7 @@
+bd.user : admin
+bd.password : admin
+jbpm.containerId: hello
+jbpm.processId: hello
 spring:
     application:
         name: saymon
@@ -23,7 +27,7 @@ spring:
              #   hibernate.enable_lazy_load_no_trans: true
              #   defaultTransactionIsolation: 2
 server:
-    port: 8080
+    port: 8180
     #servlet: /api
 
 

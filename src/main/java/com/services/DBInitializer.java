@@ -30,7 +30,7 @@ public class DBInitializer {
 		singer.setLastName("Mayer");
 		singer.setBirthDate(new Date(
 				(new GregorianCalendar(1977, 9, 16)).getTime().getTime()));
-		singerRepository.save(singer);
+	//	singerRepository.save(singer);
 		logger.info("resultado new Singer  = " + singer.getId());
 
 		singer = new Singer();
@@ -38,7 +38,7 @@ public class DBInitializer {
 		singer.setLastName("Clapton");
 		singer.setBirthDate(new Date(
 				(new GregorianCalendar(1945, 2, 30)).getTime().getTime()));
-		singerRepository.save(singer);
+	//	singerRepository.save(singer);
 
 		singer = new Singer();
 		singer.setFirstName("John");
@@ -46,7 +46,7 @@ public class DBInitializer {
 		singer.setBirthDate(new Date(
 				(new GregorianCalendar(1975, 3, 1)).getTime().getTime()));
 
-		singerRepository.save(singer);
+	//	singerRepository.save(singer);
 		logger.info(" FINISHED!!!Database initialization finished.");
 	}
 }
